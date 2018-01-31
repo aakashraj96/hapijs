@@ -1,9 +1,9 @@
 const axios = require('axios');
 const server = require('./index.js');
 
-describe('my beverage', () => {
+describe('Testing if server is responding', () => {
   test('is delicious', () => {
-    axios.get('http://localhost:8000')
+    axios.get('http://localhost:8080')
       .then((response) => {
         expect(response).toBe('Hello hapi');
       })

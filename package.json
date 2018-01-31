@@ -5,10 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.17.1",
+    "hapi": "^16.6.2",
     "through2-map": "^3.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest hello_hapi/index.test.js"
   },
   "author": "",
   "license": "ISC",
