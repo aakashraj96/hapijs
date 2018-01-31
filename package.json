@@ -9,7 +9,7 @@
     "through2-map": "^3.0.0"
   },
   "scripts": {
-    "test": "jest hello_hapi/index.test.js"
+    "test": "jest routes/index.test.js"
   },
   "author": "",
   "license": "ISC",

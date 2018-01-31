@@ -6,7 +6,7 @@ const Server = require('./index.js');
 describe('ping controller', () => {
   const options = {
     method: 'GET',
-    url: '/?name=aakash',
+    url: '/aakash',
   };
 
   beforeAll((done) => {
@@ -25,7 +25,7 @@ describe('ping controller', () => {
   test('responds with success for ping', (done) => {
     Server.inject(options, (response) => {
       expect(response.statusCode).toBe(200);
-      expect(response.result).toBe('Hello hapi');
+      expect(response.result).toBe('Hello aakash');
       done();
     });
   });
