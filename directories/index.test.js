@@ -25,7 +25,6 @@ describe('Test hapi server for a return file', () => {
     Server.inject(options, (response) => {
       console.log('got a response!!');
       expect(response.statusCode).toBe(200);
-      console.log(response);
       done();
     });
   });
@@ -33,6 +32,14 @@ describe('Test hapi server for a return file', () => {
     Server.inject(options, (response) => {
       // expect(response.statusCode).toBe(200);
       expect(response.result.toString().length).not.toBe(0);
+      // console.log(response);
+      done();
+    });
+  });
+  test('testing for returned file contents', (done) => {
+    Server.inject(options, (response) => {
+      // expect(response.statusCode).toBe(200);
+      expect(response.result.toString()).toBe('<html>\n    <head><title>Hello Directories</title></head>\n    <body>\n        Hello Directories\n    </body>\n</html>\n');
       // console.log(response);
       done();
     });
