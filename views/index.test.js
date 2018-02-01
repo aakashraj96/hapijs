@@ -26,4 +26,11 @@ describe('Test hapi server for a return file', () => {
       done();
     });
   });
+  test('testing if server returns a view', (done) => {
+    Server.inject(options, (response) => {
+      console.log('got a view!');
+      expect(response.result.toString()).toContain('<html>');
+      done();
+    });
+  });
 });
