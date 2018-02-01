@@ -10,7 +10,7 @@
     "through2-map": "^3.0.0"
   },
   "scripts": {
-    "test": "jest routes/index.test.js"
+    "test": "jest handling/index.test.js"
   },
   "author": "",
   "license": "ISC",
