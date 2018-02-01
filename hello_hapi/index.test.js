@@ -1,6 +1,6 @@
 
 const axios = require('axios');
-const server = require('./index.js');
+// const server = require('./index.js');
 const http = require('http');
 
 // describe('Testing if server is responding', () => {
