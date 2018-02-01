@@ -14,7 +14,7 @@ server.route({
   method: 'GET',
   handler: (request, reply) => {
     // console.log(request.query);
-    reply.view('index');
+    reply.view('index', { message: request.query.name });
   },
 });
 server.views({
@@ -22,12 +22,13 @@ server.views({
     html: Handlebars,
   },
   path: path.join(__dirname, 'templates'),
+  helpersPath: path.join(__dirname, 'helpers'),
 });
 
-// server.start((err) => {
-//   console.log(err);
-//
-//
-//   console.log('Server running at:', server.info.uri);
-// });
+server.start((err) => {
+  console.log(err);
+
+
+  console.log('Server running at:', server.info.uri);
+});
 module.exports = server;
