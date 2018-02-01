@@ -15,7 +15,7 @@ server.route({
   method: 'GET',
   handler: (request, reply) => {
     // console.log(request.query);
-    reply.view('index');
+    reply.view('index', { message: request.query.name });
   },
 });
 server.views({
