@@ -5,7 +5,7 @@ const Server = require('./index.js');
 describe('Test hapi server for a return file', () => {
   const options = {
     method: 'GET',
-    url: '/',
+    url: '/foo/bar/baz/file.html',
   };
 
   beforeAll((done) => {
