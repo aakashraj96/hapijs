@@ -12,7 +12,7 @@
     "vision": "^4.0.1"
   },
   "scripts": {
-    "test": "jest directories/index.test.js"
+    "test": "jest views/index.test.js"
   },
   "author": "",
   "license": "ISC",
