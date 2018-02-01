@@ -25,11 +25,11 @@ server.views({
   path: path.join(__dirname, 'templates'),
 });
 
-server.start((err) => {
-  console.log(err);
-
-
-  console.log('Server running at:', server.info.uri);
-});
+// server.start((err) => {
+//   console.log(err);
+//
+//
+//   console.log('Server running at:', server.info.uri);
+// });
 
 module.exports = server;

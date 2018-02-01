@@ -6,18 +6,18 @@ describe('Test hapi server for a return file', () => {
     url: '/',
   };
 
-  beforeAll((done) => {
-    Server.on('start', () => {
-      done();
-    });
-  });
-
-  afterAll((done) => {
-    Server.on('stop', () => {
-      done();
-    });
-    Server.stop();
-  });
+  // beforeAll((done) => {
+  //   Server.on('start', () => {
+  //     done();
+  //   });
+  // });
+  //
+  // afterAll((done) => {
+  //   Server.on('stop', () => {
+  //     done();
+  //   });
+  //   Server.stop();
+  // });
 
   test('testing if response status code is 200', (done) => {
     Server.inject(options, (response) => {
