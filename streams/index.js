@@ -20,10 +20,10 @@ server.route({
   },
 });
 
-server.start((err) => {
-  console.log(err);
-
-
-  console.log('Server running at:', server.info.uri);
-});
+// server.start((err) => {
+//   console.log(err);
+//
+//
+//   console.log('Server running at:', server.info.uri);
+// });
 module.exports = server;
