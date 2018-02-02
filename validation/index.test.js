@@ -50,4 +50,16 @@ describe('Test hapi server for a return file', () => {
       done();
     });
   });
+
+  test('testing if server is validating breed', (done) => {
+    options = {
+      method: 'GET',
+      url: '/chickens/someBreed',
+    };
+    Server.inject(options, (response) => {
+      console.log('paasing a breed, expected output: success!');
+      expect(response.result).toBe('success!');
+      done();
+    });
+  });
 });
