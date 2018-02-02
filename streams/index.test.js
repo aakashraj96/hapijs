@@ -14,4 +14,12 @@ describe('Test hapi server for a return file', () => {
       done();
     });
   });
+
+  test('testing if server returns a response', (done) => {
+    Server.inject(options, (response) => {
+      console.log('got a response');
+      expect(response.result.toString().length).not.toBe(0);
+      done();
+    });
+  });
 });
