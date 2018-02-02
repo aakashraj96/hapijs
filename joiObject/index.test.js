@@ -2,11 +2,6 @@ const Server = require('./index.js');
 const request = require('request');
 
 describe('Test hapi server for a return file', () => {
-  const options = {
-    method: 'GET',
-    url: '/login',
-  };
-
   beforeAll((done) => {
     Server.on('start', () => {
       done();
@@ -45,6 +40,22 @@ describe('Test hapi server for a return file', () => {
       (error, response, body) => {
         console.log(body);
         expect(body).toBe('login successful');
+        done();
+      },
+    );
+  });
+
+  test('Passing password and accessToken together', (done) => {
+    request.post(
+      'http://localhost:8004/login',
+      {
+        json: {
+          isGuest: false, username: 'hapi', password: 'makemehapi', accessToken: '1234abcd',
+        },
+      },
+      (error, response, body) => {
+        console.log(response.statusCode);
+        expect(response.statusCode).toBe(400);
         done();
       },
     );
