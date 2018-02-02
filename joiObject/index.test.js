@@ -33,7 +33,7 @@ describe('Test hapi server for a return file', () => {
     );
   });
 
-  test('testing for validation', (done) => {
+  test('testing for validation, expected output: login successful', (done) => {
     request.post(
       'http://localhost:8004/login',
       { json: { isGuest: false, username: 'hapi', password: 'makemehapi' } },
@@ -72,6 +72,22 @@ describe('Test hapi server for a return file', () => {
       (error, response, body) => {
         console.log(response.statusCode);
         expect(response.statusCode).toBe(400);
+        done();
+      },
+    );
+  });
+
+  test('Passing unknown parameters, Expected output: login successful', (done) => {
+    request.post(
+      'http://localhost:8004/login',
+      {
+        json: {
+          isGuest: false, username: 'hapi', password: 'makemehapi', newParam: 'none',
+        },
+      },
+      (error, response, body) => {
+        console.log(response.statusCode);
+        expect(body).toBe('login successful');
         done();
       },
     );
