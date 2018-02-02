@@ -1,7 +1,7 @@
 const Server = require('./index.js');
 const request = require('request');
 
-describe('Test hapi server for a return file', () => {
+describe('Test hapi server for validating post request', () => {
   beforeAll((done) => {
     Server.on('start', () => {
       done();
