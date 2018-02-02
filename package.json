@@ -9,12 +9,13 @@
     "hapi": "^16.6.2",
     "inert": "^4.0.4",
     "joi": "^12.0.0",
+    "request": "^2.83.0",
     "rot13-transform": "^1.0.0",
     "through2-map": "^3.0.0",
     "vision": "^4.0.1"
   },
   "scripts": {
-    "test": "jest validation/index.test.js"
+    "test": "jest joiObject/index.test.js"
   },
   "author": "",
   "license": "ISC",
