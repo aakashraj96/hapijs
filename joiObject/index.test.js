@@ -45,12 +45,28 @@ describe('Test hapi server for a return file', () => {
     );
   });
 
-  test('Passing password and accessToken together', (done) => {
+  test('Passing password and accessToken together, Expected: bad request', (done) => {
     request.post(
       'http://localhost:8004/login',
       {
         json: {
           isGuest: false, username: 'hapi', password: 'makemehapi', accessToken: '1234abcd',
+        },
+      },
+      (error, response, body) => {
+        console.log(response.statusCode);
+        expect(response.statusCode).toBe(400);
+        done();
+      },
+    );
+  });
+
+  test('Trying to not pass username when isguest is false, Expected: bad request', (done) => {
+    request.post(
+      'http://localhost:8004/login',
+      {
+        json: {
+          isGuest: false, password: 'makemehapi',
         },
       },
       (error, response, body) => {
