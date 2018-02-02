@@ -1,8 +1,5 @@
 
 const Hapi = require('hapi');
-const path = require('path');
-const rot13 = require('rot13-transform');
-const fs = require('fs');
 const Joi = require('joi');
 
 const server = new Hapi.Server();
@@ -35,8 +32,6 @@ server.route({
 });
 server.start((err) => {
   console.log(err);
-
-
   console.log('Server running at:', server.info.uri);
 });
 module.exports = server;

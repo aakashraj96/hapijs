@@ -14,13 +14,7 @@ describe('Test hapi server for validating post request', () => {
     });
     Server.stop();
   });
-  // test('testing if response status code is 200', (done) => {
-  //   Server.inject(options, (response) => {
-  //     // console.log('got a response!!', response);
-  //     expect(response.statusCode).toBe(200);
-  //     done();
-  //   });
-  // });
+
   test('testing for success code', (done) => {
     request.post(
       'http://localhost:8004/login',
@@ -88,6 +82,22 @@ describe('Test hapi server for validating post request', () => {
       (error, response, body) => {
         console.log(response.statusCode);
         expect(body).toBe('login successful');
+        done();
+      },
+    );
+  });
+
+  test('Incorrect data types, Expected: bad request', (done) => {
+    request.post(
+      'http://localhost:8004/login',
+      {
+        json: {
+          isGuest: 'hello', username: 'hapi', password: 'makemehapi', newParam: 'none',
+        },
+      },
+      (error, response, body) => {
+        console.log(response.statusCode);
+        expect(response.statusCode).toBe(400);
         done();
       },
     );
