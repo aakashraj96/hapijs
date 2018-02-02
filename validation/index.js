@@ -10,10 +10,18 @@ const server = new Hapi.Server();
 server.connection({ port: 8003, host: 'localhost' });
 
 server.route({
-  path: '/chickens',
+  path: '/chickens/{breed}',
   method: 'GET',
   handler: (request, reply) => {
+    console.log(request.params.breed);
     reply('success!');
+  },
+  config: {
+    validate: {
+      params: {
+        breed: Joi.string().required(),
+      },
+    },
   },
 });
 
